@@ -5,7 +5,12 @@ Internship to create an Xbox game for the dream.build.play challenge 2012. This 
 
 ##Team members: ##
 
-Cajetan Berger, Ralph Sharp, Aaron Schultheis, and Sean Miller.  
+**Kutztown University**
+
+1. Cajetan Berger 
+2. Ralph Sharp 
+3. Aaron Schultheis
+4. Sean Miller.  
 
 
 ## Location ##
