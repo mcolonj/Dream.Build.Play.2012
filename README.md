@@ -7,10 +7,10 @@ Internship to create an Xbox game for the dream.build.play challenge 2012. This 
 
 **Kutztown University**
 
-1. Cajetan Berger 
-2. Ralph Sharp 
-3. Aaron Schultheis
-4. Sean Miller.  
+1. Cajetan Berger (Game Designer)
+2. Ralph Sharp  (Game Programmer)
+3. Aaron Schultheis (Game Programmer)
+4. Sean Miller.   (Game Artist)
 
 
 ## Location ##
