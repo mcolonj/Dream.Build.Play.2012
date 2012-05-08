@@ -1,7 +1,7 @@
 /*
  * HighBeta Dream.Build.Play 2012 : http://github.com/mcolonj/Dream.Build.Play.2012
  *
- * Copyright (c) Michael Colon
+ * Copyright (c) {Year} {Author_name}
  * Copyright (c) 2012 HighBeta, LLC.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -23,25 +23,3 @@
  * THE SOFTWARE.
  *
  */
-
-using System;
-
-namespace Dream.Build.Play._2012
-{
-#if WINDOWS || XBOX
-    static class Program
-    {
-        /// <summary>
-        /// The main entry point for the application.
-        /// </summary>
-        static void Main(string[] args)
-        {
-            using (Game1 game = new Game1())
-            {
-                game.Run();
-            }
-        }
-    }
-#endif
-}
-
