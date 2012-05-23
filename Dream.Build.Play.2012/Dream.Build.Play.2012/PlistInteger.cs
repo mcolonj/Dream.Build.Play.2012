@@ -1,4 +1,8 @@
 ﻿/** 
+*
+* Taken from : Aaron Bockover <abockover@novell.com> https://github.com/mono/monodevelop/tree/master/main/src/addins/MonoDevelop.MacDev/MonoDevelop.MacDev.Plist,
+* Who took from: PodSleuth (http://git.gnome.org/cgit/podsleuth)
+* -------------------------------------------------------------
 * HighBeta Dream.Build.Play 2012 http://github.com/mcolonj/Dream.Build.Play.2012
 *
 * Copyright (c) Michael Colon
