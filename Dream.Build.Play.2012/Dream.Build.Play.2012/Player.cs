@@ -1,7 +1,7 @@
-/** 
+﻿/** 
 * HighBeta Dream.Build.Play 2012 http://github.com/mcolonj/Dream.Build.Play.2012
 *
-* Copyright (c) Michael Colon
+* Copyright (c) Aaron Schultheis
 * Copyright (c) 2012 HighBeta, LLC.
 *
 * Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -22,46 +22,58 @@
 * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 * THE SOFTWARE.
 **/
-
-
-// Uncomment the define below to run in debug mode.
-//#define HIGHBETA_DEBUG
 using System;
-using System.IO;
-using System.Xml;
-using System.Xml.Serialization;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 
 
 namespace Dream.Build.Play._2012
 {
-
-
-#if WINDOWS || XBOX
-    static class Program
+    class Player
     {
-        /// <summary>
-        /// The main entry point for the application.
-        /// </summary>
-        /// 
-        
-        static void Main(string[] args)
+        const int MAXHEALTH = 100;
+        const int MAXENERGY = 100;
+        //const int PLAYERSPEED = 100;
+
+
+        Animation playerAnimation;
+        Texture2D displayFrame { set; get; }
+
+        public Vector2 Position;
+        public bool Active;
+
+        public void Initialize(Animation animation, Vector2 location)
         {
-#if HIGHBETA_DEBUG
-
-            Console.WriteLine("------------------ debug mode started ----------------");
-            // debug code here
-            Console.WriteLine("------------------ debug mode ended ----------------");
-
-#else
-            Console.WriteLine("run mode");
-            using (Game1_alt game = new Game1_alt())
-            {
-                game.Run();
-            }
-#endif
+            playerAnimation = animation;
+            Position = location;
+            Active = false;
+        }
+        public void Initialize(Vector2 location)
+        {
+            Position = location;
+            Active = false;
         }
 
-    }
-#endif
-}
+        public void Update(Animation animation, GameTime gameTime)
+        {
+            if (playerAnimation != animation)
+            {
+                playerAnimation = animation;
+            
+            }
+            playerAnimation.Position = Position;
+            playerAnimation.Update(gameTime);
+        }
 
+        public void Draw(SpriteBatch spriteBatch)
+        {
+            playerAnimation.Draw(spriteBatch);
+        }
+
+
+
+    }
+}

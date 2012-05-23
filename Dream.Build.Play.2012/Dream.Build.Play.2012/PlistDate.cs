@@ -1,4 +1,4 @@
-/** 
+﻿/** 
 * HighBeta Dream.Build.Play 2012 http://github.com/mcolonj/Dream.Build.Play.2012
 *
 * Copyright (c) Michael Colon
@@ -22,46 +22,31 @@
 * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 * THE SOFTWARE.
 **/
-
-
-// Uncomment the define below to run in debug mode.
-//#define HIGHBETA_DEBUG
 using System;
-using System.IO;
+using System.Collections;
+using System.Collections.Generic;
 using System.Xml;
-using System.Xml.Serialization;
+using System.IO;
+using System.Diagnostics;
+using System.Linq;
+using System.Text;
 
-
-namespace Dream.Build.Play._2012
+namespace Dream.Build.Play._2012.Plists
 {
-
-
-#if WINDOWS || XBOX
-    static class Program
+    class PlistDate : PlistObject<DateTime>
     {
-        /// <summary>
-        /// The main entry point for the application.
-        /// </summary>
-        /// 
-        
-        static void Main(string[] args)
+        public PlistDate(DateTime value)
+            : base(value)
         {
-#if HIGHBETA_DEBUG
 
-            Console.WriteLine("------------------ debug mode started ----------------");
-            // debug code here
-            Console.WriteLine("------------------ debug mode ended ----------------");
+        }
 
-#else
-            Console.WriteLine("run mode");
-            using (Game1_alt game = new Game1_alt())
-            {
-                game.Run();
-            }
-#endif
+        static readonly string plistDateFormat = "yyyy-mm-ddThh:mm:ssZ";
+
+        public override void Write(System.Xml.XmlWriter writer)
+        {
+            writer.WriteElementString("date", Value.ToUniversalTime().ToString(plistDateFormat));
         }
 
     }
-#endif
 }
-

@@ -1,4 +1,4 @@
-/** 
+﻿/** 
 * HighBeta Dream.Build.Play 2012 http://github.com/mcolonj/Dream.Build.Play.2012
 *
 * Copyright (c) Michael Colon
@@ -22,46 +22,27 @@
 * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 * THE SOFTWARE.
 **/
-
-
-// Uncomment the define below to run in debug mode.
-//#define HIGHBETA_DEBUG
 using System;
-using System.IO;
-using System.Xml;
-using System.Xml.Serialization;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 
-
-namespace Dream.Build.Play._2012
+namespace Dream.Build.Play._2012.Plists
 {
-
-
-#if WINDOWS || XBOX
-    static class Program
+    class PlistData : PlistObject<byte[]>
     {
-        /// <summary>
-        /// The main entry point for the application.
-        /// </summary>
-        /// 
-        
-        static void Main(string[] args)
+        public PlistData(string value)
+            : base(Convert.FromBase64String(value))
         {
-#if HIGHBETA_DEBUG
 
-            Console.WriteLine("------------------ debug mode started ----------------");
-            // debug code here
-            Console.WriteLine("------------------ debug mode ended ----------------");
+        }
 
-#else
-            Console.WriteLine("run mode");
-            using (Game1_alt game = new Game1_alt())
-            {
-                game.Run();
-            }
-#endif
+        public override void Write(System.Xml.XmlWriter writer)
+        {
+            writer.WriteStartElement("data");
+            writer.WriteBase64(Value, Value.Length, 1);
+            writer.WriteEndElement();
         }
 
     }
-#endif
 }
-
