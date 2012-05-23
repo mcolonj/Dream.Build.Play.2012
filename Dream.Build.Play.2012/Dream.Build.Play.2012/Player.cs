@@ -1,7 +1,7 @@
-﻿/** 
+/** 
 * HighBeta Dream.Build.Play 2012 http://github.com/mcolonj/Dream.Build.Play.2012
 *
-* Copyright (c) Aaron Schultheis
+* Copyright (c) Michael Colon
 * Copyright (c) 2012 HighBeta, LLC.
 *
 * Permission is hereby granted, free of charge, to any person obtaining a copy
