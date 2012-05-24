@@ -183,10 +183,15 @@ namespace Dream.Build.Play._2012
 
             }
             // Only works with one row of sprites this line is key.
-            sourceRectangle = new Rectangle(frames[frameCount].x, frames[frameCount].y,
+            sourceRectangle = new Rectangle(frames[frameCount].x,
+                                            frames[frameCount].y,
                                         frames[frameCount].width, frames[frameCount].height);
 
-            destinationRectangle = new Rectangle((int)Position.X, (int)Position.Y,
+            int paddingWidth = ((frames[frameCount].originalWidth - frames[frameCount].width) / 2);
+            int paddingHeight = ((frames[frameCount].originalHeight - frames[frameCount].height) / 2);
+
+            destinationRectangle = new Rectangle((int)Position.X + paddingWidth + frames[frameCount].offsetX,
+                                                    (int)Position.Y + paddingHeight + frames[frameCount].offsetY,
                                                     (int)(frames[frameCount].width),
                                                     (int)(frames[frameCount].height));
 
